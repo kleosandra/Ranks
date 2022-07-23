@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+        body {
+            background-color: #fefbd8;
+            font-family: Verdana;
+            text-align: center;
+        }
+      .header {
+           padding: 60px;
+          background: grey;
+          margin-bottom:100;
+        }
+        
+        .ranks {
+              margin: 25px auto 0 auto;
+              
+         }     
+              
+         .ranks th,
+          .ranks td {
+               padding: 15px 25px;
+               border: 1px solid grey;
+           }
+           
+            .reviews {
+              margin: 25px auto 0 auto;
+              
+         }  
+         
+          .reviews th,
+          .reviews td {
+               padding: 30px 100px;
+               border: 1px solid grey;
+           }
+           
+            .ranks thead tr {
+               background-color: grey;
+               font-weightbold: bold;
+           
+          }  
+          
+             .reviews thead tr {
+               background-color: grey;
+               font-weightbold: bold;
+           
+          } 
+          
+           .about {
+             color:black;
+             font-size: 30px;
+             margin-left: 800px
+      
+           }   
+           
+   </style>
+    </head>
+  <body>
+    <div class="header">
+     <h3>  <a  class = "about" href= "/">Home</a> </h3>
+</div>
+<br></br>
+
+ <h1>The Center for World University Rankings (CWUR)'s 2020-21 ranking</h1>
+
+<br></br>
+
+   <table class = "ranks" >
+     <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>location</th>
+            <th>National_rank</th>
+            <th>Quality_of_education</th>
+            <th>Alumni_employment</th>
+            <th>Quality_of_faculty</th>
+            <th>Research_performance</th>
+            <th>Score</th>
+     </thead>
+        </tr>
+
+        {% for row in universities %}
+        <tr>
+            <td>{{row.0}}</td>
+            <td>{{row.1}}</td>
+            <td>{{row.2}}</td>
+            <td>{{row.3}}</td>
+            <td>{{row.4}}</td>
+            <td>{{row.5}}</td>
+            <td>{{row.6}}</td>
+            <td>{{row.7}}</td>
+            <td>{{row.8}}</td>
+        </tr>
+        {% endfor%}
+    <table/> 
+    
+<br></br>
+
+       <h1 style= "margin-left: 1000" >Review users</h1>
+<br></br>      
+      
+      <table class="reviews">
+         <thead>
+            <tr>
+                <th>Name</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+    
+            {% for row in reviews %}
+            <tr>
+                <td>{{row.0}}</td>
+                <td>{{row.1}}</td>
+            </tr>
+            {% endfor%}
+        <table/>    
+    
+   </body>
+</html>

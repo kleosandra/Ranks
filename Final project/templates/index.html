@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+        <style>
+        body {
+            background-color: #fefbd8;
+            font-family: Verdana;
+            text-align: center;
+        }
+       ::placeholder {
+       text-align: center;
+       color: black;
+       font-weight: bold;
+       font-size:18px;
+     }
+     .left{
+            text-align: left;
+            margin-bottom: 50px;
+            margin-left: 50px
+        }
+         .submi{
+            text-align: left;
+            margin-bottom: 50px;
+            margin-left: 280px;
+            text-align: center;
+            border: 3px solid grey;
+            padding: 15px 60px;
+            font-size: 20px;
+        }
+        
+          .submi1{
+           border: 3px solid grey;
+            padding: 15px 60px;
+             margin-left: 350px;
+            text-align: center;
+             font-size: 20px;
+          }
+             .header {
+             padding: 60px;
+             background: grey;
+        }
+            .university {
+              margin: 25px auto 0 auto;
+              font-size: 20px;
+              min-width: 400px;
+              border: 1px;
+        }
+             .university thead tr {
+               background-color: grey;
+               font-weightbold: bold;
+           
+          }
+              .university th,
+              .university td {
+               padding: 45px 60px;
+               border: 1px solid grey;
+           }
+           
+           .review {
+               padding: 25px 50px; 
+           }
+           .about {
+             color:black;
+             font-size: 30px;
+             margin-left: 800px
+      
+           }
+        </style>
+    </head>
+    <body>
+        <nav class="header">
+         <h3>  <a  class = "about" href= "/about">About Dataset</a> </h3>
+
+</nav>
+     <h1>The Center for World University Rankings (CWUR)'s 2020-21 ranking</h1>
+<form action="{{ url_for('Universit1') }}" method="post">
+ <br/><br/>
+ <div class = "left">
+  <div>
+    <label style= "font-weight: bold;  font-size:25px;">University Search</label>
+    <input class = type="text" name="uni" style="border: 3px solid grey; padding: 20px 40px" required/>
+    </div>
+    <br/><br/>
+  <button  class = "submi" type="submit" >Submit</button>
+</form>
+
+<form action="{{ url_for('insert') }}" method="post">
+ <br/><br/>
+  <div>
+  <h3 style= "margin-left: 400px; font-size:25px;">Rewies</h3>
+  <div class = "review">
+    <input type="text" name="name_user" placeholder="name_user" style= "padding: 25px 50px; border: 1px solid grey"  required/>
+    <input type="text" name="name_university" placeholder="name_university" style= "padding: 25px 50px; border: 1px solid grey"  required/>
+    <input type="text" name="review" placeholder="review" style= "padding: 25px 50px; border: 1px solid grey"   required/>
+    </div>
+    </div>
+    <br/><br/>
+  <button class="submi1" type="submit" >Submit</button>
+</form>
+</div>
+ <br/><br/>
+    <table  class="university">
+      <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Domain</th>
+            <th>Score</th>
+         </tr>
+      </thead>
+     <tbody>
+
+        {% for row in ranks %}
+        <tr>
+            <td>{{row.0}}</td>
+            <td>{{row.1}}</td>
+            <td>{{row.2}}</td>
+            <td>{{row.3}}</td>
+        </tr>
+      </tbody>
+        {% endfor%}
+    <table/>   
+   </body>
+</html>
